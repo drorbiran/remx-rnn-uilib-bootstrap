@@ -1,3 +1,3 @@
 export function getTopics() {
-    return [{url: "/r/someTopic", name:"some topic name"}, {url: "/r/anotherTopic", name:"Another topic name"}];
+    return "When the screen rendered you called the fetchTopic action which updated the topicStore state and here I am";
 }

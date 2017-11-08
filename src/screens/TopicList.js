@@ -13,29 +13,25 @@ class TopicsList extends PureComponent {
     }
 
     renderLoader() {
-        if (this.props.isLoading) {
-            console.log('render loader');
-            return <Text>Loading</Text>
-        }
+        console.log('render loader');
+        return <Text>Loading</Text>
     }
  
     renderList= () => {        
-        if(!this.props.isLoading) {
-            console.log('renderlist');        
-            return (   
-                <View>
-                    <Text blue50 text20 center>Welcome</Text>
-                    <Text>
-                        {JSON.stringify(this.props.topics)}
-                    </Text>
-                    <View center marginT-100>
-                        <Button text70 white label="Push Screen"
-                        onPress={this.pushScreen.bind(this)}
-                        />
-                    </View>
-                </View>               
-            );
-        }
+        console.log('renderlist');        
+        return (   
+            <View>
+                <Text blue50 text20 center>Welcome</Text>
+                <Text>
+                    {JSON.stringify(this.props.topics)}
+                </Text>
+                <View center marginT-100>
+                    <Button text70 white label="Push Screen"
+                    onPress={this.pushScreen.bind(this)}
+                    />
+                </View>
+            </View>               
+        );
     }
 
     pushScreen = () => {
@@ -49,8 +45,10 @@ class TopicsList extends PureComponent {
     render() {
         return (
             <View flex paddingH-25 paddingT-120>
-                {this.renderLoader()}
-                {this.renderList()}
+                {(this.props.isLoading)?
+                    this.renderLoader() :
+                    this.renderList()
+                }
             </View>
         );
     }
